@@ -1,0 +1,210 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2, h3, h4 {
+    margin: 0;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo h4 {
+    margin: 0;
+}
+
+.navitems {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navitems li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.navitems li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+
+.main {
+    padding: 20px;
+}
+
+.hero, .hero1, .grid, .grid1, .grid2, .grid3 {
+    text-align: center;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    padding: 40px 20px; 
+    height: 700px;
+}
+
+.hero {
+    background-image: url(assets/iphoness.jpg);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.hero1 {
+    background-image: url(assets/wa.jpg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 20px;
+    height: 500px;
+    position: relative;
+}
+
+.grid {
+    background-image: url(assets/airpod.png);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.grid1 {
+    background-image: url(assets/ipad.jpeg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.grid2 {
+    background-image: url(assets/mac.avif);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.grid3 {
+    background-image: url(assets/imac.webp);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.hero h2, .hero1 h2, .grid h2, .grid1 h2, .grid2 h2, .grid3 h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.hero h3, .hero1 h3, .grid h3, .grid1 h3, .grid2 h3, .grid3 h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0071e3;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button button:hover {
+    background-color: #005bb5;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 10px;
+}
+
+.footer-section h3 {
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #555;
+}
