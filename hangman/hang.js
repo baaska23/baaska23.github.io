@@ -1,4 +1,4 @@
-const words = ['javascript', 'hangman', 'hello', 'node', 'bye'];
+const words = ['javascript', 'python', 'angular', 'laravel', 'ruby'];
 const selectedWord = words[Math.floor(Math.random() * words.length)];
 let lives = 5;
 let guessedLetters = [];

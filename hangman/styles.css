@@ -28,7 +28,7 @@ body {
   }
   
   #message {
-    color: red;
+    color: rgb(170, 150, 150);
     margin-bottom: 20px;
   }
   
