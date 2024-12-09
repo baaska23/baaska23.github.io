@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <link rel="stylesheet" href="counter.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .editable {
+            width: 98%;
+            height: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            overflow-y: auto;
+        }
+        .editable[contenteditable="true"]:empty:before {
+            content: attr(placeholder);
+            color: #aaa;
+        }
+        .highlight-error {
+            background-color: rgb(230, 83, 83);
+            color: white;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #00c281;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #00a76f;
+        }
+        #grammarErrors {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Word Counter</h1>
+        <div class="stats">
+            <p id="wordCount">Words: 0</p>
+            <p id="charCount">Characters: 0</p>
+        </div>
+        <div id="documentInput" class="editable" contenteditable="true" placeholder="Start typing, or copy and paste your document here..."></div>
+        <button id="checkGrammar">Check Grammar</button>
+        <div id="grammarErrors"></div>
+    </div>
+    <script src="counter.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.editable {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow: auto;
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+
+.added {
+    background-color: green;
+    color: white;
+}
+
+.removed {
+    background-color: red;
+    color: white;
+    text-decoration: line-through;
+}
+
+.unchanged {
+    color: black;
+}
