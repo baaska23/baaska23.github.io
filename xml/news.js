@@ -21,8 +21,6 @@ xhr.onload = function(){
         }
         
         newsDetail.innerHTML= description;  
-}else {
-    newsDetail.textContent = "Энэ мэдээнд дэлгэрэнгүй мэдээлэл олдсонгүй!";
-}  
-        }
+    } 
+}
 xhr.send();

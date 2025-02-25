@@ -18,9 +18,7 @@ xhr.onload = function(){
                 ${title}
             </a>`;
         newsList.appendChild(newsItem);}
-    }else{console.error("RSS tathad aldaa garlaa");}
+    }
 };
-xhr.onerror = function() {
-    console.error("Сервертэй холбогдох боломжгүй байна.");
-};
+
 xhr.send();

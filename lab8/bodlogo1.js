@@ -26,6 +26,5 @@ rl.question('Toog oruul: ', (userInput) => {
     }
 
     isPalindrome(digitSum) ? console.log('Palindrom mun') : console.log('Palindrom bish');
-
     rl.close();
 });
