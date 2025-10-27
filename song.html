@@ -10,297 +10,200 @@
             background-color: #ffdbeb;
             margin: 0;
             padding: 20px;
-            background-image: url('/api/placeholder/100/100'), url('/api/placeholder/150/150'), url('/api/placeholder/120/120');
-            background-repeat: repeat;
-            position: relative;
-            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        /* Cat decorations */
-        body::before, body::after {
-            content: "";
-            position: fixed;
-            width: 180px;
-            height: 180px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            z-index: -1;
-        }
-        body::before {
-            top: 20px;
-            left: 20px;
-            background-image: url('/api/placeholder/180/180');
-            opacity: 0.6;
-        }
-        body::after {
-            bottom: 20px;
-            right: 20px;
-            background-image: url('/api/placeholder/180/180');
-            opacity: 0.6;
-        }
+        
         .container {
             text-align: center;
             max-width: 1000px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
+        
+        .video-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 50px;
+        }
+        
         .video-container {
             position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            margin-bottom: 20px;
+            width: 640px;
+            height: 360px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+            overflow: hidden;
         }
+        
         .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .banner {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 10px;
-        }
-        .lyrics-container {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ffc3d7 50%, #ff69b4 100%);
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            background-color: rgba(255, 182, 193, 0.8);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
-            backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-        }
-        .lyrics-en, .lyrics-de {
-            flex: 1;
-            height: 400px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 15px;
-            border-radius: 15px;
-            text-align: left;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        
-        /* New header styling with images */
-        .header-with-images {
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            margin-top: 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ffc0cb;
-        }
-        
-        .header-with-images h2 {
-            margin: 0 10px;
-            color: #ff69b4;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        
-        .header-with-images img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid #ff69b4;
-        }
-        
-        /* Customize scrollbar */
-        .lyrics-en::-webkit-scrollbar, .lyrics-de::-webkit-scrollbar {
-            width: 8px;
-        }
-        .lyrics-en::-webkit-scrollbar-track, .lyrics-de::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            align-items: center;
             border-radius: 10px;
+            z-index: 10;
+            transition: opacity 0.3s ease;
         }
-        .lyrics-en::-webkit-scrollbar-thumb, .lyrics-de::-webkit-scrollbar-thumb {
-            background: #ff9eb5;
-            border-radius: 10px;
+
+        .banner.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
-        /* Cat paw cursor */
-        .lyrics-en, .lyrics-de {
-            cursor: url('/api/placeholder/32/32'), auto;
+
+        .banner-text {
+            font-family: 'Georgia', serif;
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            padding: 0 20px;
+            animation: pulse 2s ease-in-out infinite;
         }
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .lyrics-container {
-                flex-direction: column;
-            }
-            .lyrics-en, .lyrics-de {
-                width: 100%;
-                height: 300px;
-            }
-            body::before, body::after {
-                width: 100px;
-                height: 100px;
-            }
-            .header-with-images img {
-                width: 30px;
-                height: 30px;
-            }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
-        /* Page title */
-        .page-title {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+
+        .click-button {
+            background: white;
             color: #ff1493;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
+            border: none;
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
         }
-        .page-title::before, .page-title::after {
-            content: "🐱";
+
+        .click-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: #ffe0f0;
+        }
+
+        .click-button:active {
+            transform: scale(0.95);
+        }
+
+        .cat-deco {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5em;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            object-fit: cover;
+            border: 4px solid #fff;
         }
-        .page-title::before {
-            left: -40px;
-        }
-        .page-title::after {
-            right: -40px;
-        }
+
+        /* Top row - 4 cats evenly spaced */
+        .cat1  { top: -50px; left: 0; }
+        .cat2  { top: -50px; left: 33.33%; transform: translateX(-50%); }
+        .cat3  { top: -50px; left: 66.66%; transform: translateX(-50%); }
+        .cat4  { top: -50px; right: 0; }
         
-        /* Hide the original cat images at the top */
-        .cat-images-container {
-            display: none;
+        /* Left side - 2 cats */
+        .cat5  { top: 33.33%; left: -50px; transform: translateY(-50%); }
+        .cat6  { top: 66.66%; left: -50px; transform: translateY(-50%); }
+        
+        /* Right side - 2 cats */
+        .cat7  { top: 33.33%; right: -50px; transform: translateY(-50%); }
+        .cat8  { top: 66.66%; right: -50px; transform: translateY(-50%); }
+        
+        /* Bottom row - 4 cats evenly spaced */
+        .cat9  { bottom: -50px; left: 0; }
+        .cat10 { bottom: -50px; left: 33.33%; transform: translateX(-50%); }
+        .cat11 { bottom: -50px; left: 66.66%; transform: translateX(-50%); }
+        .cat12 { bottom: -50px; right: 0; }
+        
+        @media (max-width: 900px) {
+            .video-container {
+                width: 90vw;
+                height: calc(90vw * 0.5625);
+            }
+            
+            .video-wrapper {
+                padding: 40px;
+            }
+            
+            .cat-deco {
+                width: 60px;
+                height: 60px;
+            }
+
+            .banner-text {
+                font-size: 32px;
+            }
+
+            .click-button {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Store original cat images in a hidden container -->
-        <div class="cat-images-container">
-            <img src="/cats/cat0.webp">
-            <img src="/cats/cat1.jpg">
-            <img src="/cats/cat2.gif">
-            <img src="/cats/cat2.jpg">
-        </div>
-        
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/xpo2yewA7nI?si=qzCrJtkXI2mgir9C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="lyrics-container">
-            <div class="lyrics-en">
-                <!-- Modified header with images -->
-                <div class="header-with-images">
-                    <img src="/cats/cat0.webp" alt="Cat">
-                    <h2>Lyrics</h2>
-                    <img src="/cats/cat1.jpg" alt="Cat">
+        <div class="video-wrapper">
+            <div class="video-container">
+                <div class="banner" id="banner">
+                    <div class="banner-text">You Look Beautiful Today!</div>
+                    <button class="click-button" onclick="playVideo()">Click Me! 🎵</button>
                 </div>
-                ♪ ♪ ♪
-Тэр нэг тийм хүн 
-Нүд нь гүн инээд нь хөнгөн
-Тэр нэг тийм хүн 
-Номер алт бусад нь мөнгөн
-Би нэг тийм хүн 
-Бусдыг нь март сэтгэлээ өгнө
-Би нэг тийм хүн 
-Би тэрний хүн
-Чи минь хэлдэг маргааш үхэж магадгүй 
-Санал нийлдэг тиймээ тийм магадгүй
-Түүнийг байгаа болохоор нулимсандаа хахадгүй 
-Тэврээд хэвтэхдээ хайртайгаа гайхдаггүй
-Аваад явъя гэж хэлдэг 
-Араас минь хараад гараас минь барьдаг
-Алдсан ч бай, алдсан ч бай 
-Алдаад дахиад эхлэх үү гэдэг
-Би санадаг 
-Зүүдэндээ хардаг
-Сэрэхдээ ханадаг 
-Сарыг л манадаг
-Би санадаг 
-Зүүдэндээ хардаг
-Сэрэхдээ ханадаг 
-Сарыг л манадаг
-Зүүд ээ нойрны минь дотроосоо хө
-Зүрхний минь Гоолингоо нь
-Үзэгдээд л байхымаа хө
-Халуун coffee 2 мөстэй 
-Түүнийг дүрсэлнэ диваажинтай төстэй
-Үнсээд илбэхэд тас хар үстэй 
-Үгээрээ тэдний зүрхийг нь зүсдэг
-Түүнд бичсэн шүлэг бүрийн үсэг бүр нь үнэн
-Тэврэхэд нар диваажингийн гүүр нь
-Үхэл шөнө харин тэр миний үүр байв 
-Түүний хажууд баг биш инээсэн нүүр байв
-Үүрдийн биш зуурдын болохоор 
-Зуурдын биш үүрдийн тэврээч
-Үүрд ийм байхгүй байх гэлээ ч 
-Үг биш нүдээрээ хэлээч
-Хэлээч/x4
-Би санадаг 
-Зүүдэндээ хардаг
-Сэрэхдээ ханадаг 
-Сарыг л манадаг
-Би санадаг 
-Зүүдэндээ хардаг
-♪ ♪ ♪
-Зүйчлэн хэлсэн үг нь хө
-Миний цээжинд нь (Би санадаг Зүүдэндээ хардаг Сэрэхдээ ханадаг Сарыг л манадаг )
-Хадаастайхан байхымаа хө (Би санадаг Зүүдэндээ хардаг Сэрэхдээ ханадаг Сарыг л манадаг)
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/IpFX2vq8HKw?si=JnhGb_4GPaEpJaLi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <div class="lyrics-de">
-                <!-- Modified header with images -->
-                <div class="header-with-images">
-                    <img src="/cats/cat2.gif" alt="Cat">
-                    <h2>der Liedtext</h2>
-                    <img src="/cats/cat2.jpg" alt="Cat">
-                </div>
-                ♪ ♪ ♪
-Diese eine Person, tiefe Augen, leichtes Lächeln
-Diese eine Person, golden, andere sind silbern
-Ich bin einer, der andere vergisst, ihm mein Herz gibt
-Ich bin einer, der ihm gehört
-Du sagst, ich könnte morgen sterben
-Ich stimme zu, ja, ja, vielleicht
-Weil ich ihn habe, weine ich nicht
-Wenn ich ihn umarme und mich hinlege, höre ich nicht auf zu denken, dass ich ihn liebe
-Er sagt, lass uns gehen
-Er schaut hinter mich und hält meine Hand
-Ob wir gestritten haben
-Er sagt, sollen wir es noch einmal versuchen
-Ich erinnere mich an ihn
-Ich sehe ihn in meinen Träumen
-Wenn ich aufwache, bin ich zufrieden
-Ich warte nur auf den Mond
-Ich erinnere mich an ihn
-Ich sehe ihn in meinen Träumen
-Wenn ich aufwache, bin ich zufrieden
-Ich warte nur auf den Mond
-Träume, oh, aus den Tiefen meines Schlafes
-Meine Dame
-Nur ich kann an sie denken
-Heißer Kaffee mit 2 Eis
-Ich beschreibe ihn als himmlisch
-Wenn du ihn küsst und streichelst, hat er sehr schwarze Haare
-Jeder Buchstabe jedes Gedichts, das an ihn geschrieben wurde, ist wahr
-Wenn ich ihn umarme, ist die Sonne die Brücke zum Himmel
-Der Tod ist die Nacht, aber er war mein Nest
-Er hatte ein warmes, lächelndes Gesicht, keine falsche Maske
-Denn es ist vorübergehend, nicht für immer
-Umarme mich für immer, nicht vorübergehend
-Auch wenn sie sagen, dass es nicht für immer so sein wird
-Sag es mit deinen Augen, nicht mit Worten
-Sag es/x4
-Ich erinnere mich
-Wir sehen uns in meinen Träumen
-Wenn ich aufwache, bin ich zufrieden
-Nur der Mond wartet
-Ich erinnere mich
-Wir sehen uns in meinen Träumen
-♪ ♪ ♪
-
-In meinem Herzen (Ich erinnere mich, Wir sehen uns in meinen Träumen, wenn ich aufwache, bin ich zufrieden)
-Du wirst immer da sein (Ich erinnere mich, Wir sehen uns in meinen Träumen, wenn ich aufwache, bin ich zufrieden)
-            </div>
+            
+            <!-- Top cats -->
+            <img src="cats/cat0.webp" class="cat-deco cat1" alt="Cat 1">
+            <img src="cats/cat1.gif" class="cat-deco cat2" alt="Cat 2">
+            <img src="cats/cat2.gif" class="cat-deco cat3" alt="Cat 3">
+            <img src="cats/cat2.jpg" class="cat-deco cat4" alt="Cat 4">
+            
+            <!-- Left side cats -->
+            <img src="cats/cat3.gif" class="cat-deco cat5" alt="Cat 5">
+            <img src="cats/cat11.jpg" class="cat-deco cat6" alt="Cat 6">
+            
+            <!-- Right side cats -->
+            <img src="cats/cat12.jpg" class="cat-deco cat7" alt="Cat 7">
+            <img src="cats/cat13.jpg" class="cat-deco cat8" alt="Cat 8">
+            
+            <!-- Bottom cats -->
+            <img src="cats/cat14.jpg" class="cat-deco cat9" alt="Cat 9">
+            <img src="cats/cat15.jpg" class="cat-deco cat10" alt="Cat 10">
+            <img src="cats/cat16.jpg" class="cat-deco cat11" alt="Cat 11">
+            <img src="cats/cat1.jpg" class="cat-deco cat12" alt="Cat 12">
         </div>
     </div>
+
+    <script>
+        function playVideo() {
+            const banner = document.getElementById('banner');
+            const videoFrame = document.getElementById('videoFrame');
+            
+            // Hide banner
+            banner.classList.add('hidden');
+            
+            // Auto-play video
+            videoFrame.src = videoFrame.src.replace('enablejsapi=1', 'enablejsapi=1&autoplay=1');
+        }
+    </script>
 </body>
 </html>
